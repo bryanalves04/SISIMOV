@@ -1,0 +1,26 @@
+/* src/index.css */
+
+/* 1) Faz html e body ocuparem toda a altura da janela */
+html, body {
+  height: 100%;
+  margin: 0;       /* remove margens padrão do navegador */
+  padding: 0;      /* remove padding padrão */
+}
+
+/* 2) Garante que o elemento #root (onde o React monta tudo) também ocupe 100% da tela */
+#root {
+  height: 100%;
+}
+
+/* 3) (Opcional) Reseta estilos básicos e define fonte padrão */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #04112a; /* fundo escuro geral */
+  color: #ecf0f1;
+}

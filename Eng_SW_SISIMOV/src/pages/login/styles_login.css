@@ -1,0 +1,100 @@
+:root {
+  --police-blue: #0b1f3b;
+  --police-accent: #1f4e79;
+  --card-bg: #ffffff;
+  --input-border: #bbb;
+  --input-focus: #1f4e79;
+  --button-bg: #1f4e79;
+  --button-hover: #163b5f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, html, #root {
+  margin: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--police-blue);
+  background: linear-gradient(135deg, var(--police-blue), var(--police-accent));
+  height: 100vh;
+  width: 100vw;
+}
+
+.login-card {
+  background: var(--card-bg);
+  padding: 48px 32px;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 380px;
+}
+
+.login-logo {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.badge-icon {
+  color: var(--police-accent);
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+.login-logo h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  letter-spacing: 1px;
+  color: #222;
+}
+
+.login-field {
+  margin-bottom: 18px;
+}
+
+.login-field label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #444;
+}
+
+.login-field input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.login-field input:focus {
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 3px rgba(31, 78, 121, 0.3);
+  outline: none;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: #fff;
+  background: var(--button-bg);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-button:hover {
+  background: var(--button-hover);
+}
