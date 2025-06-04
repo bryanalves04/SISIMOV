@@ -108,9 +108,9 @@ export default function MilitarList() {
       <table className="batalhao-table">
         <thead>
           <tr>
-            <th>BATALHÃO</th>
-            <th>ESTADO</th>
+            <th>BATALHÃO</th> 
             <th>MUNICÍPIO</th>
+             <th>ESTADO</th> 
             <th>STATUS</th>
           </tr>
         </thead>

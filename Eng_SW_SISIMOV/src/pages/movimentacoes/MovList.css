@@ -1,0 +1,239 @@
+/* ───────────────────────────────────────────────────────────────────── */
+/* Container geral da página de Movimentações */
+/* ───────────────────────────────────────────────────────────────────── */
+.mov-container {
+  width: 100%;
+  max-width: 1200px;  /* Limita largura máxima para melhor leitura */
+  margin: 0 auto;     /* Centraliza horizontalmente */
+  padding: 32px 16px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #0a2342 0%, #152f4f 100%);
+  min-height: calc(100vh - 80px); /* Ajuste para “cobrir” toda a altura da janela */
+}
+
+/* ───────────────────────────────────────────────────────────────────── */
+/* Cabeçalho (título + botão Filtrar) */
+/* ───────────────────────────────────────────────────────────────────── */
+.mov-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.mov-header h2 {
+  font-size: 1.8rem;
+  color: #f1c40f; /* dourado */
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.mov-filtrar-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 1rem;
+  background: #203b6c; /* tom de azul-escuro mais claro */
+  color: #ecf0f1;
+  border: 1px solid #13223b;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.mov-filtrar-btn:hover {
+  background: #1b315a;
+}
+
+/* ───────────────────────────────────────────────────────────────────── */
+/* Tabela de Histórico de Movimentações */
+/* ───────────────────────────────────────────────────────────────────── */
+.mov-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 32px;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.mov-table th,
+.mov-table td {
+  padding: 12px 16px;
+  border: 1px solid #1b315a;
+  text-align: left;
+  color: #ecf0f1;
+  font-size: 0.9rem;
+}
+
+.mov-table th {
+  background: #203b6c;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mov-table tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.mov-table tr:hover {
+  background: rgba(241, 196, 15, 0.1);
+}
+
+/* Cores de status na tabela */
+.status-aprovado {
+  color: #2ecc71; /* verde */
+  font-weight: bold;
+}
+
+.status-rejeitado {
+  color: #e74c3c; /* vermelho */
+  font-weight: bold;
+}
+
+.status-pendente {
+  color: #f1c40f; /* dourado */
+  font-weight: bold;
+}
+
+/* Linha de “sem resultados” */
+.sem-resultados {
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+/* ───────────────────────────────────────────────────────────────────── */
+/* Wrapper para colunas: Filtro & Requerimentos */
+/* ───────────────────────────────────────────────────────────────────── */
+.mov-wrapper {
+  display: flex;
+  gap: 24px;
+  margin-top: 32px;
+  flex-wrap: wrap; /* Empilha em telas estreitas */
+}
+
+/* ───────────────────────────────────────────────────────────────────── */
+/* Coluna do Filtro (esquerda) */
+/* ───────────────────────────────────────────────────────────────────── */
+.mov-filtro-col {
+  flex: 1;
+  min-width: 280px;
+}
+
+.mov-filtro-col h4 {
+  margin-bottom: 12px;
+  color: #f1c40f;
+  font-size: 1.2rem;
+}
+
+.mov-filtro-cascata {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mov-filtro-cascata select {
+  flex: 1;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #13223b;
+  background: #1b243b;
+  color: #ecf0f1;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+
+.mov-filtro-cascata select:focus {
+  outline: none;
+  border-color: #f1c40f;
+}
+
+/* ───────────────────────────────────────────────────────────────────── */
+/* Coluna de Aprovação (direita) */
+/* ───────────────────────────────────────────────────────────────────── */
+.mov-aprov-col {
+  flex: 1;
+  min-width: 320px;
+}
+
+.mov-aprov-container {
+  background: #13223b;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.mov-aprov-container h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #f1c40f;
+  font-size: 1.4rem;
+}
+
+.sem-pendentes {
+  color: #7f8c8d;
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+/* Cartão individual de pendente */
+.pendente-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #203b6c;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  padding: 12px 16px;
+}
+
+.pendente-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #ecf0f1;
+  font-size: 0.9rem;
+}
+
+.pendente-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pendente-actions button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-aprovar {
+  background: #2ecc71;
+  color: #13223b;
+}
+
+.btn-aprovar:hover {
+  background: #27ae60;
+}
+
+.btn-rejeitar {
+  background: #e74c3c;
+  color: #ecf0f1;
+}
+
+.btn-rejeitar:hover {
+  background: #c0392b;
+}
+
+/* Ajuste responsivo: quando a tela ficar mais estreita, os cards empilham */
+@media (max-width: 800px) {
+  .mov-wrapper {
+    flex-direction: column;
+  }
+}

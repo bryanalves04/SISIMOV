@@ -1,14 +1,11 @@
-/* src/pages/militares/MilitarList.css */
-
-/* ─── Container que define a largura máxima e centraliza ─── */
+/* Container que abriga toda a página de Militares */
 .militar-container {
-  width: max-content;              /* será “empurrado” pelo flex do main-content */
-  padding: 32px 16px;       /* espaçamento interno */
-  box-sizing: border-box;   /* faz com que o padding seja contado dentro da largura */
-  /* note que não precisamos mais de margin: 0 auto; pois o próprio flex do main-content já centraliza */
+  width: 100%;
+  padding: 32px 16px;
+  box-sizing: border-box;
 }
 
-/* Demais estilos continuam iguais... */
+/* Cabeçalho interno da página (título + botão de filtro) */
 .militar-header {
   display: flex;
   align-items: center;
@@ -41,27 +38,7 @@
   background: #1e3a72;
 }
 
-.filtro-cascata {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
-.filtro-cascata select {
-  flex: 1;
-  padding: 8px;
-  border-radius: 4px;
-  border: 1px solid #203b6c;
-  background: #1e2a38;
-  color: #ecf0f1;
-  transition: border-color 0.2s;
-}
-
-.filtro-cascata select:focus {
-  outline: none;
-  border-color: #f1c40f;
-}
-
+/* Tabela de Batalhões (100% da largura disponível) */
 .batalhao-table {
   width: 100%;
   border-collapse: collapse;
@@ -90,7 +67,7 @@
 }
 
 .batalhao-table tr:hover {
-  background: rgba(241, 196, 15, 0.1);
+  background: rgba(241, 196, 15, 0.1); /* leve brilho dourado ao passar o mouse */
 }
 
 .batalhao-table td {
@@ -98,11 +75,61 @@
   font-size: 0.9rem;
 }
 
+/* Mensagem quando não há resultados */
 .batalhao-table .sem-resultados {
   color: #7f8c8d;
   font-style: italic;
 }
 
+/* ───────── Wrapper flex para Filtro + Formulário ───────── */
+.filtro-e-interesse-wrapper {
+  display: flex;
+  gap: 24px;            /* espaço entre colunas */
+  margin-top: 32px;     /* distância da tabela ao wrapper */
+  flex-wrap: wrap;      /* empilha colunas se a tela ficar estreita */
+}
+
+/* ─── Coluna do Filtro (esquerda) ─── */
+.filtro-col {
+  flex: 1;             /* ocupa igual proporção */
+  min-width: 280px;    /* largura mínima para não ficar muito apertado */
+}
+
+.filtro-col h4 {
+  margin-bottom: 12px;
+  color: #f1c40f;      /* dourado */
+  font-size: 1.2rem;
+}
+
+/* Painel de filtro em cascata (Estado → Município → Batalhão) */
+.filtro-cascata {
+  display: flex;
+  flex-direction: column; /* empilha selects em coluna */
+  gap: 12px;
+}
+
+.filtro-cascata select {
+  flex: 1;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #203b6c;
+  background: #1e2a38;
+  color: #ecf0f1;
+  transition: border-color 0.2s;
+}
+
+.filtro-cascata select:focus {
+  outline: none;
+  border-color: #f1c40f;
+}
+
+/* ─── Coluna do Formulário (direita) ─── */
+.interesse-col {
+  flex: 1;             /* ocupa igual proporção */
+  min-width: 320px;    /* largura mínima para caber todos os inputs */
+}
+
+/* Formulário “Registrar Interesse” */
 .interesse-container {
   background: #1e2a38;
   padding: 24px;
@@ -113,18 +140,20 @@
 
 .interesse-container h3 {
   margin-top: 0;
-  font-size: 1.4rem;
+  margin-bottom: 8px;
   color: #f1c40f;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  font-size: 1.4rem;
 }
 
 .interesse-container p {
   color: #bdc3c7;
   margin-bottom: 16px;
+  font-size: 0.9rem;
 }
 
+/* Inputs e Selects do formulário */
 .input-group {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .input-group label {
@@ -137,7 +166,7 @@
 .input-group input,
 .input-group select {
   width: 100%;
-  padding: 10px;
+  padding: 8px;
   border-radius: 4px;
   border: 1px solid #203b6c;
   background: #152f4f;
@@ -157,15 +186,16 @@
   background: #1e2a38;
 }
 
+/* Botão “Salvar Interesse” */
 .salvar-btn {
-  padding: 12px 20px;
+  margin-top: 8px;
+  padding: 10px 16px;
   background: #f1c40f;
   color: #152f4f;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 0.95rem;
   transition: background 0.2s, transform 0.1s;
 }
 
@@ -174,8 +204,9 @@
   transform: translateY(-1px);
 }
 
+/* Mensagem de confirmação */
 .interesse-msg {
-  margin-top: 16px;
+  margin-top: 12px;
   color: #2ecc71;
   font-weight: bold;
   white-space: pre-line;
