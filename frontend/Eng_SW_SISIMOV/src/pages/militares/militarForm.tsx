@@ -5,8 +5,8 @@ function getDataAtual() {
   return hoje.toISOString().slice(0, 10); // YYYY-MM-DD
 }
 
-
 export default function MilitarForm() {
+  const [nome, setNome] = useState(''); // ✅ Adicionado estado para nome
   const [codPolicial, setCodPolicial] = useState('');
   const [origem, setOrigem] = useState({ estadoId: '', municipioId: '', batalhaoId: '' });
   const [destino, setDestino] = useState({ estadoId: '', municipioId: '', batalhaoId: '' });
@@ -15,6 +15,7 @@ export default function MilitarForm() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const novaMovimentacao = {
+      nome, // ✅ Incluindo nome na movimentação
       codPolicial,
       origem: JSON.stringify(origem),
       destino: JSON.stringify(destino),
@@ -34,6 +35,7 @@ export default function MilitarForm() {
       .then(data => {
         console.log('Dados recebidos do backend:', data);
         setMensagem('Interesse registrado com sucesso!');
+        setNome(''); // ✅ Limpar o nome
         setCodPolicial('');
         setOrigem({ estadoId: '', municipioId: '', batalhaoId: '' });
         setDestino({ estadoId: '', municipioId: '', batalhaoId: '' });
@@ -48,12 +50,20 @@ export default function MilitarForm() {
     <div>
       <h3>Registrar Interesse de Realocação</h3>
       <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', maxWidth: 300 }}>
+        {/* ✅ Adicionado input para nome */}
+        <input
+          value={nome}
+          onChange={e => setNome(e.target.value)}
+          placeholder="Nome completo"
+          required
+        />
         <input
           value={codPolicial}
           onChange={e => setCodPolicial(e.target.value)}
           placeholder="Código Policial"
           required
         />
+        // ...existing code...
         <input
           value={origem.estadoId}
           onChange={e => setOrigem(o => ({ ...o, estadoId: e.target.value }))}
